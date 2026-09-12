@@ -1,0 +1,2 @@
+C:/Users/amin_/Desktop/Projekte/zephyr/zephyr_west_sdk/esp32/deps/zephyr/arch/common/dynamic_isr.c:12:13:z_isr_install	32	static
+C:/Users/amin_/Desktop/Projekte/zephyr/zephyr_west_sdk/esp32/deps/zephyr/arch/common/dynamic_isr.c:38:12:arch_irq_connect_dynamic	32	static

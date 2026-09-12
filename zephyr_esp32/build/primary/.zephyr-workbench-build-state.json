@@ -1,0 +1,23 @@
+{
+  "board": "esp32_devkitc/esp32/procpu",
+  "sysbuild": false,
+  "snippets": [],
+  "cmakeArgs": "",
+  "envVars": {
+    "EXTRA_CONF_FILE": [],
+    "EXTRA_DTC_OVERLAY_FILE": [],
+    "EXTRA_ZEPHYR_MODULES": [],
+    "SHIELD": [],
+    "SNIPPETS": []
+  },
+  "toolchainEnv": {
+    "ZEPHYR_TOOLCHAIN_VARIANT": "zephyr"
+  },
+  "sdkEnv": {
+    "ZEPHYR_SDK_INSTALL_DIR": "c:\\Users\\amin_\\Desktop\\Projekte\\zephyr\\zephyr_west_sdk\\zephyr-sdk-1.0.1"
+  },
+  "workspaceEnv": {
+    "ZEPHYR_BASE": "c:\\Users\\amin_\\Desktop\\Projekte\\zephyr\\zephyr_west_sdk\\esp32\\deps\\zephyr",
+    "ZEPHYR_PROJECT_DIRECTORY": "c:\\Users\\amin_\\Desktop\\Projekte\\zephyr\\zephyr_west_sdk\\esp32"
+  }
+}

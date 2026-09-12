@@ -1,0 +1,10 @@
+C:/Users/amin_/Desktop/Projekte/zephyr/zephyr_west_sdk/esp32/deps/modules/hal/espressif/components/spi_flash/spi_flash_chip_winbond.c:32:11:spi_flash_chip_winbond_probe	32	static
+C:/Users/amin_/Desktop/Projekte/zephyr/zephyr_west_sdk/esp32/deps/modules/hal/espressif/components/spi_flash/spi_flash_chip_winbond.c:171:18:spi_flash_chip_winbond_get_caps	32	static
+C:/Users/amin_/Desktop/Projekte/zephyr/zephyr_west_sdk/esp32/deps/modules/hal/espressif/components/spi_flash/spi_flash_chip_winbond.c:193:11:spi_flash_chip_winbond_suspend_cmd_conf	48	static
+C:/Users/amin_/Desktop/Projekte/zephyr/zephyr_west_sdk/esp32/deps/modules/hal/espressif/components/spi_flash/spi_flash_chip_winbond.c:248:18:spi_flash_command_winbond_program_4B	64	static
+C:/Users/amin_/Desktop/Projekte/zephyr/zephyr_west_sdk/esp32/deps/modules/hal/espressif/components/spi_flash/spi_flash_chip_winbond.c:79:11:spi_flash_chip_winbond_page_program	32	static
+C:/Users/amin_/Desktop/Projekte/zephyr/zephyr_west_sdk/esp32/deps/modules/hal/espressif/components/spi_flash/spi_flash_chip_winbond.c:262:11:spi_flash_command_winbond_erase_sector_4B	64	static
+C:/Users/amin_/Desktop/Projekte/zephyr/zephyr_west_sdk/esp32/deps/modules/hal/espressif/components/spi_flash/spi_flash_chip_winbond.c:101:11:spi_flash_chip_winbond_erase_sector	32	static
+C:/Users/amin_/Desktop/Projekte/zephyr/zephyr_west_sdk/esp32/deps/modules/hal/espressif/components/spi_flash/spi_flash_chip_winbond.c:274:11:spi_flash_command_erase_block_4B	64	static
+C:/Users/amin_/Desktop/Projekte/zephyr/zephyr_west_sdk/esp32/deps/modules/hal/espressif/components/spi_flash/spi_flash_chip_winbond.c:136:11:spi_flash_chip_winbond_erase_block	32	static
+C:/Users/amin_/Desktop/Projekte/zephyr/zephyr_west_sdk/esp32/deps/modules/hal/espressif/components/spi_flash/spi_flash_chip_winbond.c:43:11:spi_flash_chip_winbond_read	128	static

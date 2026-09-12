@@ -1,0 +1,6 @@
+west:
+  command: C:\Users\amin_\.zinstaller\.venv\Scripts\west build --pristine always --cmake
+    --board esp32_devkitc/esp32/procpu --build-dir c:\Users\amin_\Desktop\Projekte\zephyr\zephyr_esp32\zephyr_esp32\build\primary
+    --source-dir c:\Users\amin_\Desktop\Projekte\zephyr\zephyr_esp32\zephyr_esp32
+  topdir: c:\Users\amin_\Desktop\Projekte\zephyr\zephyr_west_sdk\esp32
+  version: 1.5.0

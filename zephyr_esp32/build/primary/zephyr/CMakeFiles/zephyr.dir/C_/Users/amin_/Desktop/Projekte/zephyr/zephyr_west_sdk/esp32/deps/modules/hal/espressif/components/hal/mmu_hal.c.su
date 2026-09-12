@@ -1,0 +1,12 @@
+C:/Users/amin_/Desktop/Projekte/zephyr/zephyr_west_sdk/esp32/deps/modules/hal/espressif/components/hal/esp32/include/hal/mmu_ll.h:369:19:mmu_ll_find_entry_id_based_on_map_value	32	static
+C:/Users/amin_/Desktop/Projekte/zephyr/zephyr_west_sdk/esp32/deps/modules/hal/espressif/components/hal/esp32/include/hal/mmu_ll.h:409:24:mmu_ll_entry_id_to_vaddr_base	32	static
+C:/Users/amin_/Desktop/Projekte/zephyr/zephyr_west_sdk/esp32/deps/modules/hal/espressif/components/hal/mmu_hal.c:24:6:mmu_hal_ctx_init	32	static
+C:/Users/amin_/Desktop/Projekte/zephyr/zephyr_west_sdk/esp32/deps/modules/hal/espressif/components/hal/mmu_hal.c:40:6:mmu_hal_unmap_all	32	static
+C:/Users/amin_/Desktop/Projekte/zephyr/zephyr_west_sdk/esp32/deps/modules/hal/espressif/components/hal/mmu_hal.c:29:6:mmu_hal_init	32	static
+C:/Users/amin_/Desktop/Projekte/zephyr/zephyr_west_sdk/esp32/deps/modules/hal/espressif/components/hal/mmu_hal.c:52:10:mmu_hal_pages_to_bytes	32	static
+C:/Users/amin_/Desktop/Projekte/zephyr/zephyr_west_sdk/esp32/deps/modules/hal/espressif/components/hal/mmu_hal.c:72:10:mmu_hal_bytes_to_pages	32	static
+C:/Users/amin_/Desktop/Projekte/zephyr/zephyr_west_sdk/esp32/deps/modules/hal/espressif/components/hal/mmu_hal.c:150:6:mmu_hal_paddr_to_vaddr	32	static
+C:/Users/amin_/Desktop/Projekte/zephyr/zephyr_west_sdk/esp32/deps/modules/hal/espressif/components/hal/mmu_hal.c:171:6:mmu_hal_check_valid_ext_vaddr_region	32	static
+C:/Users/amin_/Desktop/Projekte/zephyr/zephyr_west_sdk/esp32/deps/modules/hal/espressif/components/hal/mmu_hal.c:92:6:mmu_hal_map_region	48	static
+C:/Users/amin_/Desktop/Projekte/zephyr/zephyr_west_sdk/esp32/deps/modules/hal/espressif/components/hal/mmu_hal.c:116:6:mmu_hal_unmap_region	32	static
+C:/Users/amin_/Desktop/Projekte/zephyr/zephyr_west_sdk/esp32/deps/modules/hal/espressif/components/hal/mmu_hal.c:132:6:mmu_hal_vaddr_to_paddr	32	static

@@ -1,0 +1,20 @@
+{
+  "zephyr-workbench.build.configurations": [
+    {
+      "name": "primary",
+      "board": "esp32_devkitc/esp32/procpu",
+      "active": "true",
+      "default-runner": "esp32",
+      "custom-args": "--esp-device=COM5"
+    }
+  ],
+  "zephyr-workbench.westWorkspace": "${workspaceFolder}/../../zephyr_west_sdk/esp32",
+  "zephyr-workbench.toolchain": "zephyr",
+  "zephyr-workbench.sdk": "${workspaceFolder}/../../zephyr_west_sdk/zephyr-sdk-1.0.1",
+  "zephyr-workbench.intellisense.provider": "cpptools",
+  "cmake.configureOnOpen": false,
+  "cmake.enableAutomaticKitScan": false,
+  "terminal.integrated.stickyScroll.enabled": false,
+  "cmake.ignoreCMakeListsMissing": true,
+  "cmake.sourceDirectory": "${workspaceFolder}/nonexistent"
+}

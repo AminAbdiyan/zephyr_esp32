@@ -1,0 +1,1 @@
+C:/Users/amin_/Desktop/Projekte/zephyr/zephyr_west_sdk/esp32/deps/modules/hal/espressif/components/esp_rom/patches/esp_rom_gpio.c:15:49:esp_rom_gpio_connect_out_signal	32	static

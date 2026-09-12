@@ -1,0 +1,2 @@
+C:/Users/amin_/Desktop/Projekte/zephyr/zephyr_west_sdk/esp32/deps/modules/hal/espressif/components/esp_system/port/soc/esp32/system_internal.c:30:6:esp_system_reset_modules_on_exit	32	static
+C:/Users/amin_/Desktop/Projekte/zephyr/zephyr_west_sdk/esp32/deps/modules/hal/espressif/components/esp_system/port/soc/esp32/system_internal.c:70:6:esp_restart_noos	64	static

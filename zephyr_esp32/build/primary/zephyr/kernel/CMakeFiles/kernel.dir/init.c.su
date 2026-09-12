@@ -1,0 +1,11 @@
+C:/Users/amin_/Desktop/Projekte/zephyr/zephyr_west_sdk/esp32/deps/zephyr/kernel/init.c:363:13:init_idle_thread	48	static
+C:/Users/amin_/Desktop/Projekte/zephyr/zephyr_west_sdk/esp32/deps/zephyr/kernel/init.c:220:13:z_sys_init_run_level	32	static
+C:/Users/amin_/Desktop/Projekte/zephyr/zephyr_west_sdk/esp32/deps/zephyr/kernel/include/kthread.h:51:20:thread_schedule_new	32	static
+C:/Users/amin_/Desktop/Projekte/zephyr/zephyr_west_sdk/esp32/deps/zephyr/kernel/init.c:66:13:z_init_static_threads	48	static
+C:/Users/amin_/Desktop/Projekte/zephyr/zephyr_west_sdk/esp32/deps/zephyr/kernel/init.c:283:13:bg_thread_main	32	static
+C:/Users/amin_/Desktop/Projekte/zephyr/zephyr_west_sdk/esp32/deps/zephyr/kernel/include/kswap.h:196:20:z_swap_unlocked	32	static
+C:/Users/amin_/Desktop/Projekte/zephyr/zephyr_west_sdk/esp32/deps/zephyr/kernel/init.c:476:27:switch_to_main_thread	32	static
+C:/Users/amin_/Desktop/Projekte/zephyr/zephyr_west_sdk/esp32/deps/zephyr/kernel/init.c:393:6:z_init_cpu	32	static
+C:/Users/amin_/Desktop/Projekte/zephyr/zephyr_west_sdk/esp32/deps/zephyr/kernel/init.c:442:14:prepare_multithreading	48	static
+C:/Users/amin_/Desktop/Projekte/zephyr/zephyr_west_sdk/esp32/deps/zephyr/kernel/init.c:494:13:z_early_rand_get	48	static
+C:/Users/amin_/Desktop/Projekte/zephyr/zephyr_west_sdk/esp32/deps/zephyr/kernel/init.c:538:20:z_cstart	32	static

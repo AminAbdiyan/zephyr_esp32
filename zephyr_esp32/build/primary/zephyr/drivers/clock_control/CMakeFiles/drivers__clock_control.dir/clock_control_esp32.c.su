@@ -1,0 +1,10 @@
+C:/Users/amin_/Desktop/Projekte/zephyr/zephyr_west_sdk/esp32/deps/modules/hal/espressif/components/esp_hal_clock/esp32/include/hal/clk_gate_ll.h:20:24:periph_ll_get_clk_en_mask	32	static
+C:/Users/amin_/Desktop/Projekte/zephyr/zephyr_west_sdk/esp32/deps/zephyr/drivers/clock_control/clock_control_esp32.c:98:34:clock_control_esp32_get_status	32	static
+C:/Users/amin_/Desktop/Projekte/zephyr/zephyr_west_sdk/esp32/deps/zephyr/drivers/clock_control/clock_control_esp32.c:183:12:esp32_select_rtc_slow_clk	32	static
+C:/Users/amin_/Desktop/Projekte/zephyr/zephyr_west_sdk/esp32/deps/zephyr/drivers/clock_control/clock_control_esp32.c:283:13:esp32_cpu_clock_init	48	static
+C:/Users/amin_/Desktop/Projekte/zephyr/zephyr_west_sdk/esp32/deps/zephyr/drivers/clock_control/clock_control_esp32.c:367:12:esp32_cpu_clock_configure	64	static
+C:/Users/amin_/Desktop/Projekte/zephyr/zephyr_west_sdk/esp32/deps/zephyr/drivers/clock_control/clock_control_esp32.c:494:12:clock_control_esp32_configure	32	static
+C:/Users/amin_/Desktop/Projekte/zephyr/zephyr_west_sdk/esp32/deps/zephyr/drivers/clock_control/clock_control_esp32.c:158:12:clock_control_esp32_get_rate	32	static
+C:/Users/amin_/Desktop/Projekte/zephyr/zephyr_west_sdk/esp32/deps/zephyr/drivers/clock_control/clock_control_esp32.c:141:12:clock_control_esp32_off	32	static
+C:/Users/amin_/Desktop/Projekte/zephyr/zephyr_west_sdk/esp32/deps/zephyr/drivers/clock_control/clock_control_esp32.c:121:12:clock_control_esp32_on	32	static
+C:/Users/amin_/Desktop/Projekte/zephyr/zephyr_west_sdk/esp32/deps/zephyr/drivers/clock_control/clock_control_esp32.c:524:12:clock_control_esp32_init	32	static

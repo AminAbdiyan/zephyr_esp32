@@ -1,0 +1,1 @@
+"mcuboot":"C:/Users/amin_/Desktop/Projekte/zephyr/zephyr_west_sdk/esp32/deps/bootloader/mcuboot":"C:/Users/amin_/Desktop/Projekte/zephyr/zephyr_west_sdk/esp32/deps/bootloader/mcuboot/boot/zephyr/sysbuild"

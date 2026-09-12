@@ -1,0 +1,2 @@
+C:/Users/amin_/Desktop/Projekte/zephyr/zephyr_west_sdk/esp32/deps/zephyr/kernel/idle.c:22:6:idle	32	static
+C:/Users/amin_/Desktop/Projekte/zephyr/zephyr_west_sdk/esp32/deps/zephyr/kernel/idle.c:97:13:arch_spin_relax	32	static

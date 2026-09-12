@@ -1,0 +1,57 @@
+# Available runners configured by board.cmake.
+runners:
+- openocd
+- esp32
+
+# Default flash runner if --runner is not given.
+flash-runner: esp32
+
+# Default debug runner if --runner is not given.
+debug-runner: openocd
+
+# Common runner configuration values.
+config:
+  board_dir: C:/Users/amin_/Desktop/Projekte/zephyr/zephyr_west_sdk/esp32/deps/zephyr/boards/espressif/esp32_devkitc
+  # Build outputs:
+  elf_file: zephyr.elf
+  hex_file: zephyr.hex
+  bin_file: zephyr.bin
+  # Host tools:
+  gdb: C:/Users/amin_/Desktop/Projekte/zephyr/zephyr_west_sdk/zephyr-sdk-1.0.1/gnu/xtensa-espressif_esp32_zephyr-elf/bin/xtensa-espressif_esp32_zephyr-elf-gdb.exe
+
+# Runner specific arguments
+args:
+  openocd:
+    - --cmd-load
+    - flash write_image erase
+    - --cmd-verify
+    - verify_image
+    - --no-halt
+    - --no-targets
+    - --no-load
+    - --target-handle
+    - _TARGETNAME_0
+    - --gdb-init
+    - set remote hardware-watchpoint-limit 2
+    - --gdb-init
+    - maintenance flush register-cache
+    - --gdb-init
+    - mon esp appimage_offset 0x1000
+    - --gdb-init
+    - mon reset halt
+    - --gdb-init
+    - thb main
+    - --file-type=bin
+    - --flash-address=0x1000
+    - --cmd-load
+    - program_esp
+    - --cmd-verify
+    - esp verify_bank_hash 0
+  esp32:
+    - --esp-monitor-baud=115200
+    - --esp-idf-path=C:/Users/amin_/Desktop/Projekte/zephyr/zephyr_west_sdk/esp32/deps/modules/hal/espressif
+    - --esp-app-address=0x1000
+    - --esp-flash-size=4MB
+    - --esp-flash-freq=40m
+    - --esp-flash-mode=dio
+    - --esp-idf-path=C:/Users/amin_/Desktop/Projekte/zephyr/zephyr_west_sdk/esp32/deps/modules/hal/espressif
