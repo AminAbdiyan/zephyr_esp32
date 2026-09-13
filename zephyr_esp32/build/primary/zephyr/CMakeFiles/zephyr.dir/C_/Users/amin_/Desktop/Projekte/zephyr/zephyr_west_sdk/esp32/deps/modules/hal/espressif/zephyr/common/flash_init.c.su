@@ -1,3 +1,0 @@
-C:/Users/amin_/Desktop/Projekte/zephyr/zephyr_west_sdk/esp32/deps/modules/hal/espressif/zephyr/common/flash_init.c:25:6:flash_is_octal_mode_enabled	32	static
-C:/Users/amin_/Desktop/Projekte/zephyr/zephyr_west_sdk/esp32/deps/modules/hal/espressif/zephyr/common/flash_init.c:35:27:spi_flash_init_chip_state	32	static
-C:/Users/amin_/Desktop/Projekte/zephyr/zephyr_west_sdk/esp32/deps/modules/hal/espressif/zephyr/common/flash_init.c:50:6:esp_flash_config	32	static

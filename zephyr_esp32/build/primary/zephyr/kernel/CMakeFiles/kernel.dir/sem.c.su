@@ -1,4 +1,0 @@
-C:/Users/amin_/Desktop/Projekte/zephyr/zephyr_west_sdk/esp32/deps/zephyr/kernel/sem.c:45:5:z_impl_k_sem_init	32	static
-C:/Users/amin_/Desktop/Projekte/zephyr/zephyr_west_sdk/esp32/deps/zephyr/kernel/sem.c:95:6:z_impl_k_sem_give	32	static
-C:/Users/amin_/Desktop/Projekte/zephyr/zephyr_west_sdk/esp32/deps/zephyr/kernel/sem.c:132:5:z_impl_k_sem_take	32	static
-C:/Users/amin_/Desktop/Projekte/zephyr/zephyr_west_sdk/esp32/deps/zephyr/kernel/sem.c:166:6:z_impl_k_sem_reset	32	static

@@ -1,2 +1,0 @@
-C:/Users/amin_/Desktop/Projekte/zephyr/zephyr_west_sdk/esp32/deps/zephyr/kernel/dynamic_disabled.c:12:19:z_impl_k_thread_stack_alloc	32	static
-C:/Users/amin_/Desktop/Projekte/zephyr/zephyr_west_sdk/esp32/deps/zephyr/kernel/dynamic_disabled.c:20:5:z_impl_k_thread_stack_free	32	static

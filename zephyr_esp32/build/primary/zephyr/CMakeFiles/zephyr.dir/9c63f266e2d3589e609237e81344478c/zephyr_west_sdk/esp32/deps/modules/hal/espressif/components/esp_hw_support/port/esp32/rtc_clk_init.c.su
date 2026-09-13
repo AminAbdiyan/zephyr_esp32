@@ -1,3 +1,0 @@
-C:/Users/amin_/Desktop/Projekte/zephyr/zephyr_west_sdk/esp32/deps/modules/hal/espressif/components/esp_hal_clock/esp32/include/hal/clk_tree_ll.h:816:20:clk_ll_rc_fast_set_divider	32	static
-C:/Users/amin_/Desktop/Projekte/zephyr/zephyr_west_sdk/esp32/deps/modules/hal/espressif/components/esp_hw_support/port/esp32/rtc_clk_init.c:140:24:rtc_clk_xtal_freq_estimate	32	static
-C:/Users/amin_/Desktop/Projekte/zephyr/zephyr_west_sdk/esp32/deps/modules/hal/espressif/components/esp_hw_support/port/esp32/rtc_clk_init.c:31:6:rtc_clk_init	80	static

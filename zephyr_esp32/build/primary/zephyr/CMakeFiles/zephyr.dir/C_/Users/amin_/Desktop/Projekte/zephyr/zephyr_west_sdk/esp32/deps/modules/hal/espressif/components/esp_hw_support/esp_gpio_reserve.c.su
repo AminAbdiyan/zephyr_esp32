@@ -1,3 +1,0 @@
-C:/Users/amin_/Desktop/Projekte/zephyr/zephyr_west_sdk/esp32/deps/modules/hal/espressif/components/esp_hw_support/esp_gpio_reserve.c:21:10:esp_gpio_reserve	32	static
-C:/Users/amin_/Desktop/Projekte/zephyr/zephyr_west_sdk/esp32/deps/modules/hal/espressif/components/esp_hw_support/esp_gpio_reserve.c:30:10:esp_gpio_revoke	32	static
-C:/Users/amin_/Desktop/Projekte/zephyr/zephyr_west_sdk/esp32/deps/modules/hal/espressif/components/esp_hw_support/esp_gpio_reserve.c:39:6:esp_gpio_is_reserved	32	static

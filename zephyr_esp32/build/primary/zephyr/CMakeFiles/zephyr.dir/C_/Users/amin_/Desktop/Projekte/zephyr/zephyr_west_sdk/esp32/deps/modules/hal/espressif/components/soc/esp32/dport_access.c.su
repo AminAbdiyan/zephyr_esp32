@@ -1,2 +1,0 @@
-C:/Users/amin_/Desktop/Projekte/zephyr/zephyr_west_sdk/esp32/deps/modules/hal/espressif/components/soc/esp32/dport_access.c:13:20:esp_dport_access_reg_read	32	static
-C:/Users/amin_/Desktop/Projekte/zephyr/zephyr_west_sdk/esp32/deps/modules/hal/espressif/components/soc/esp32/dport_access.c:35:20:esp_dport_access_sequence_reg_read	32	static

@@ -1,5 +1,0 @@
-C:/Users/amin_/Desktop/Projekte/zephyr/zephyr_west_sdk/esp32/deps/modules/hal/espressif/components/esp_hal_gpio/esp32/include/hal/rtc_io_ll.h:46:20:rtcio_ll_iomux_func_sel	32	static
-C:/Users/amin_/Desktop/Projekte/zephyr/zephyr_west_sdk/esp32/deps/modules/hal/espressif/components/esp_hal_gpio/esp32/include/hal/rtc_io_ll.h:58:20:rtcio_ll_function_select	32	static
-C:/Users/amin_/Desktop/Projekte/zephyr/zephyr_west_sdk/esp32/deps/zephyr/drivers/pinctrl/pinctrl_esp32.c:77:12:esp32_pin_apply_config	48	static
-C:/Users/amin_/Desktop/Projekte/zephyr/zephyr_west_sdk/esp32/deps/zephyr/drivers/pinctrl/pinctrl_esp32.c:153:12:esp32_pin_configure	32	static
-C:/Users/amin_/Desktop/Projekte/zephyr/zephyr_west_sdk/esp32/deps/zephyr/drivers/pinctrl/pinctrl_esp32.c:283:5:pinctrl_configure_pins	32	static

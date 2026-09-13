@@ -1,9 +1,0 @@
-C:/Users/amin_/Desktop/Projekte/zephyr/zephyr_west_sdk/esp32/deps/zephyr/lib/os/cbprintf_packaged.c:150:12:cbprintf_via_va_list	48	static
-C:/Users/amin_/Desktop/Projekte/zephyr/zephyr_west_sdk/esp32/deps/zephyr/lib/os/cbprintf_packaged.c:878:13:is_fmt_spec	32	static
-C:/Users/amin_/Desktop/Projekte/zephyr/zephyr_west_sdk/esp32/deps/zephyr/lib/os/cbprintf_packaged.c:196:15:get_package_len	32	static
-C:/Users/amin_/Desktop/Projekte/zephyr/zephyr_west_sdk/esp32/deps/zephyr/lib/os/cbprintf_packaged.c:223:12:append_string	32	static
-C:/Users/amin_/Desktop/Projekte/zephyr/zephyr_west_sdk/esp32/deps/zephyr/lib/os/cbprintf_packaged.c:233:5:cbvprintf_package	112	static
-C:/Users/amin_/Desktop/Projekte/zephyr/zephyr_west_sdk/esp32/deps/zephyr/lib/os/cbprintf_packaged.c:819:5:cbprintf_package	96	static
-C:/Users/amin_/Desktop/Projekte/zephyr/zephyr_west_sdk/esp32/deps/zephyr/lib/os/cbprintf_packaged.c:831:5:cbpprintf_external	48	static
-C:/Users/amin_/Desktop/Projekte/zephyr/zephyr_west_sdk/esp32/deps/zephyr/lib/os/cbprintf_packaged.c:886:6:is_ptr	32	static
-C:/Users/amin_/Desktop/Projekte/zephyr/zephyr_west_sdk/esp32/deps/zephyr/lib/os/cbprintf_packaged.c:913:5:cbprintf_package_convert	128	static

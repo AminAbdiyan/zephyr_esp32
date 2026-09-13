@@ -1,5 +1,0 @@
-C:/Users/amin_/Desktop/Projekte/zephyr/zephyr_west_sdk/esp32/deps/zephyr/lib/posix/c_lib_ext/fnmatch.c:75:12:rangematch_cc	32	static
-C:/Users/amin_/Desktop/Projekte/zephyr/zephyr_west_sdk/esp32/deps/zephyr/lib/posix/c_lib_ext/fnmatch.c:156:19:foldcase	32	static
-C:/Users/amin_/Desktop/Projekte/zephyr/zephyr_west_sdk/esp32/deps/zephyr/lib/posix/c_lib_ext/fnmatch.c:165:12:rangematch	64	static
-C:/Users/amin_/Desktop/Projekte/zephyr/zephyr_west_sdk/esp32/deps/zephyr/lib/posix/c_lib_ext/fnmatch.c:252:12:fnmatchx	48	static
-C:/Users/amin_/Desktop/Projekte/zephyr/zephyr_west_sdk/esp32/deps/zephyr/lib/posix/c_lib_ext/fnmatch.c:373:5:fnmatch	32	static

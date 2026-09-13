@@ -1,3 +1,0 @@
-C:/Users/amin_/Desktop/Projekte/zephyr/zephyr_west_sdk/esp32/deps/zephyr/arch/xtensa/core/thread.c:38:14:init_stack	32	static
-C:/Users/amin_/Desktop/Projekte/zephyr/zephyr_west_sdk/esp32/deps/zephyr/arch/xtensa/core/thread.c:117:6:arch_new_thread	32	static
-C:/Users/amin_/Desktop/Projekte/zephyr/zephyr_west_sdk/esp32/deps/zephyr/arch/xtensa/core/thread.c:186:5:arch_coprocessors_disable	32	static

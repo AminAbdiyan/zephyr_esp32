@@ -2,7 +2,28 @@
 
 cmake_minimum_required(VERSION 3.20.0)
 
-find_package(Zephyr REQUIRED HINTS $ENV{ZEPHYR_BASE})
-project(hello_world)
+set(DTC_OVERLAY_FILE "${CMAKE_CURRENT_SOURCE_DIR}/app.overlay" CACHE STRING "" FORCE)
 
-target_sources(app PRIVATE src/main.c)
+find_package(Zephyr REQUIRED HINTS $ENV{ZEPHYR_BASE})
+project(zephyr_esp32_lcd)
+
+target_sources(app PRIVATE
+    src/main.cpp
+    src/display/display_task.cpp
+    src/platform/zephyr_auxdisplay_adapter.cpp
+)
+
+target_include_directories(app PRIVATE
+    include
+    src
+)
+
+target_compile_options(app PRIVATE
+    $<$<COMPILE_LANGUAGE:CXX>:
+        -fno-exceptions
+        -fno-rtti
+        -fno-threadsafe-statics
+        -Wall
+        -Wextra
+    >
+)

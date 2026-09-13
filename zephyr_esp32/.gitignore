@@ -1,0 +1,21 @@
+# Build artifacts
+build/
+build*/
+twister-out*/
+
+# CMake temporary files
+CMakeLists.txt.user
+CMakeCache.txt
+CMakeFiles/
+CMakeScripts/
+cmake_install.cmake
+
+# Environment and IDE files
+.idea/
+*.swp
+*~
+.DS_Store
+
+# West and temporary files
+.west/
+

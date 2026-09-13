@@ -1,4 +1,0 @@
-C:/Users/amin_/Desktop/Projekte/zephyr/zephyr_west_sdk/esp32/deps/zephyr/kernel/condvar.c:21:5:z_impl_k_condvar_init	32	static
-C:/Users/amin_/Desktop/Projekte/zephyr/zephyr_west_sdk/esp32/deps/zephyr/kernel/condvar.c:44:5:z_impl_k_condvar_signal	32	static
-C:/Users/amin_/Desktop/Projekte/zephyr/zephyr_west_sdk/esp32/deps/zephyr/kernel/condvar.c:76:5:z_impl_k_condvar_broadcast	32	static
-C:/Users/amin_/Desktop/Projekte/zephyr/zephyr_west_sdk/esp32/deps/zephyr/kernel/condvar.c:114:5:z_impl_k_condvar_wait	32	static

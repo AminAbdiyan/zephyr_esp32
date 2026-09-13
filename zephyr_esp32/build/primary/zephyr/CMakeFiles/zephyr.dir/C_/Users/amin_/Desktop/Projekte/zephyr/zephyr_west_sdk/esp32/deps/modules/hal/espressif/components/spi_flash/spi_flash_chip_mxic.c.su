@@ -1,3 +1,0 @@
-C:/Users/amin_/Desktop/Projekte/zephyr/zephyr_west_sdk/esp32/deps/modules/hal/espressif/components/spi_flash/spi_flash_chip_mxic.c:16:11:spi_flash_chip_mxic_probe	32	static
-C:/Users/amin_/Desktop/Projekte/zephyr/zephyr_west_sdk/esp32/deps/modules/hal/espressif/components/spi_flash/spi_flash_chip_mxic.c:31:11:spi_flash_chip_mxic_detect_size	32	static
-C:/Users/amin_/Desktop/Projekte/zephyr/zephyr_west_sdk/esp32/deps/modules/hal/espressif/components/spi_flash/spi_flash_chip_mxic.c:61:18:spi_flash_chip_mxic_get_caps	32	static
