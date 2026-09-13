@@ -5,7 +5,7 @@
       "compileCommands": [
         "${workspaceFolder}/build/primary/compile_commands.json"
       ],
-      "compilerPath": "${workspaceFolder}/../../zephyr_west_sdk/zephyr-sdk-1.0.1/gnu/xtensa/bin/xtensa-gcc.exe"
+      "compilerPath": "${workspaceFolder}/../zephyr_west_sdk/zephyr-sdk-1.0.1/gnu/xtensa/bin/xtensa-gcc.exe"
     }
   ],
   "version": 4

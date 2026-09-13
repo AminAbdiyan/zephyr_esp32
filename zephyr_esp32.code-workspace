@@ -1,0 +1,14 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"name": "esp32",
+			"path": "../zephyr_west_sdk/esp32"
+		}
+	],
+	"settings": {
+		"terminal.integrated.stickyScroll.enabled": false
+	}
+}
