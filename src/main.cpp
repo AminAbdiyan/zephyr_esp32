@@ -1,8 +1,8 @@
 #include <zephyr/kernel.h>
 #include <zephyr/logging/log.h>
 
-#include "app/app_status.hpp"
-#include "app/display/display_task.hpp"
+#include "common/app_status.hpp"
+#include "display/display_task.hpp"
 #include "platform/zephyr_auxdisplay_adapter.hpp"
 
 LOG_MODULE_REGISTER(app_main, LOG_LEVEL_INF);

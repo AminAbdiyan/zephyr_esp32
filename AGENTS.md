@@ -20,18 +20,19 @@ Use the following structure as the project grows:
 ├── README.md                         # Setup, build, usage, and important changes
 ├── CMakeLists.txt
 ├── prj.conf                          # Base Zephyr application configuration
-├── app.overlay                       # Optional global Devicetree overlay
-├── boards/                           # Board-specific configurations and overlays
-│   ├── <board_name>.conf             # Board-specific Kconfig additions
-│   └── <board_name>.overlay          # Board-specific Devicetree overrides
-├── include/
-│   └── app/
-│       ├── app_status.hpp            # Shared status/error type
-│       └── <module>/<module>.hpp     # Public module interface
+├── overlay/                          # Devicetree overlays
+│   └── <board_name>.overlay          # Board-specific Devicetree overlay
 ├── src/
 │   ├── main.cpp                      # Application startup and dependency wiring
-│   ├── platform/                     # Zephyr and hardware adapters
-│   └── <module>/<module>.cpp         # Module implementation
+│   ├── common/                       # Shared types, error codes, and utilities
+│   │   └── app_status.hpp
+│   ├── platform/                     # Zephyr and hardware adapters (.hpp and .cpp)
+│   │   ├── <adapter>.hpp
+│   │   └── <adapter>.cpp
+│   └── <module>/                     # Module interface and implementation (.hpp and .cpp)
+│       ├── <module>_service.hpp
+│       ├── <module>_task.hpp
+│       └── <module>_task.cpp
 ├── tests/                            # Zephyr ztest unit/integration tests
 ├── docs/                             # Architecture or safety notes, if needed
 ├── .clang-format

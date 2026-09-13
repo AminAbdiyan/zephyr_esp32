@@ -2,7 +2,7 @@
 
 #include <stddef.h>
 #include <stdint.h>
-#include "app/app_status.hpp"
+#include "common/app_status.hpp"
 
 namespace app::display {
 
@@ -57,3 +57,4 @@ public:
 };
 
 }  // namespace app::display
+

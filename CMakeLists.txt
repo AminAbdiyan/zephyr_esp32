@@ -2,7 +2,7 @@
 
 cmake_minimum_required(VERSION 3.20.0)
 
-set(DTC_OVERLAY_FILE "${CMAKE_CURRENT_SOURCE_DIR}/app.overlay" CACHE STRING "" FORCE)
+set(DTC_OVERLAY_FILE "${CMAKE_CURRENT_SOURCE_DIR}/overlay/esp32_devkitc_procpu.overlay" CACHE STRING "" FORCE)
 
 find_package(Zephyr REQUIRED HINTS $ENV{ZEPHYR_BASE})
 project(zephyr_esp32_lcd)
@@ -14,7 +14,6 @@ target_sources(app PRIVATE
 )
 
 target_include_directories(app PRIVATE
-    include
     src
 )
 

@@ -1,4 +1,4 @@
-#include "app/display/display_task.hpp"
+#include "display/display_task.hpp"
 
 #include <zephyr/kernel.h>
 #include <zephyr/logging/log.h>

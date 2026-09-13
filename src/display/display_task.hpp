@@ -3,8 +3,8 @@
 #include <stddef.h>
 #include <stdint.h>
 
-#include "app/app_status.hpp"
-#include "app/display/display_service.hpp"
+#include "common/app_status.hpp"
+#include "display/display_service.hpp"
 
 namespace app::display {
 

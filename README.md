@@ -55,16 +55,16 @@ LCD GND ---> GND [ ] | 16          16 | [ ]  GND
 
 ## Architecture
 
-- **Devicetree** (`app.overlay` / `boards/esp32_devkitc_procpu.overlay`):
+- **Devicetree** (`overlay/esp32_devkitc_procpu.overlay`):
   - Configures `&i2c0` at 100 kHz on GPIO 21 (SDA) and GPIO 22 (SCL).
-- **Public Interfaces** (`include/app/`):
+- **Common Types** (`src/common/`):
   - `app_status.hpp`: Standardized `app::Status` enum and `IsOk()` predicate.
-  - `display/display_service.hpp`: Pure abstract interface `IDisplayService`.
-  - `display/display_task.hpp`: Background worker task interface.
+- **Display Module** (`src/display/`):
+  - `display_service.hpp`: Pure abstract interface `IDisplayService`.
+  - `display_task.hpp`: Background worker task interface.
+  - `display_task.cpp`: Dedicated Zephyr thread updating the LCD (Row 0: "Hello world", Row 1: "Count: <n>" incrementing every 1 second).
 - **Platform Adapter** (`src/platform/`):
   - `zephyr_auxdisplay_adapter.hpp` / `.cpp`: Auto-detects I2C addresses `0x27` and `0x3F`, provides I2C bus diagnostic scanning, and controls the HD44780 4-bit protocol.
-- **Application Logic** (`src/display/`):
-  - `display_task.cpp`: Dedicated Zephyr thread updating the LCD (Row 0: "Hello world", Row 1: "Count: <n>" incrementing every 1 second).
 - **Application Startup** (`src/main.cpp`):
   - Ultra-lean dependency wiring with zero business logic.
 
