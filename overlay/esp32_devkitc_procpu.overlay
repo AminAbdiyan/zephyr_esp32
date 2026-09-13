@@ -8,5 +8,14 @@
 	clock-frequency = <I2C_BITRATE_STANDARD>;
 	sda-gpios = <&gpio0 21 GPIO_OPEN_DRAIN>;
 	scl-gpios = <&gpio0 22 GPIO_OPEN_DRAIN>;
-};
 
+	/*
+	 * InvenSense / ICQUANZX GY-521 MPU-6050 6-DOF IMU
+	 * Default 7-bit I2C address is 0x68 when AD0 is pulled low to GND.
+	 */
+	mpu6050: mpu6050@68 {
+		compatible = "invensense,mpu6050";
+		reg = <0x68>;
+		status = "okay";
+	};
+};

@@ -11,6 +11,8 @@ target_sources(app PRIVATE
     src/main.cpp
     src/display/display_task.cpp
     src/platform/zephyr_auxdisplay_adapter.cpp
+    src/platform/zephyr_mpu6050_adapter.cpp
+    src/sensor/sensor_task.cpp
 )
 
 target_include_directories(app PRIVATE

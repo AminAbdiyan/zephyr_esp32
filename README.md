@@ -1,12 +1,18 @@
-# ESP32 Zephyr HD44780 1602 LCD Application
+# ESP32 Zephyr MPU6050 IMU & HD44780 1602 LCD Application
 
-This application drives an AZDelivery HD44780 1602 LCD module with PCF8574 I2C backpack using Zephyr RTOS on a **uPesy ESP32 WROOM DevKit**.
+This application reads 6-DOF motion data (3-axis accelerometer, 3-axis gyroscope, and die temperature) from an **ICQUANZX GY-521 MPU-6050** sensor at 1 Hz and displays the real-time measurements on an **AZDelivery HD44780 1602 LCD** module via I2C using Zephyr RTOS on an **ESP32 WROOM DevKit** (e.g. uPesy ESP32 Wroom).
 
-It follows the embedded safety and architecture guidelines specified in `AGENTS.md`.
+It follows embedded safety, clean separation of concerns, and MISRA C++ principles outlined in `AGENTS.md`.
 
 ---
 
-## Hardware Pinout & Wiring for ESP32 WROOM DevKit
+## Hardware Pinout & Wiring
+
+Both the **GY-521 MPU6050** and the **HD44780 LCD backpack** connect to the **same I2C bus** (`&i2c0`):
+- **SDA** -> **GPIO 21**
+- **SCL** -> **GPIO 22**
+- **VCC** -> **5V** or **3V3** (LCD backpack requires 5V for contrast; GY-521 can accept 3.3V or 5V thanks to its onboard regulator)
+- **GND** -> **GND**
 
 > [!IMPORTANT]
 > Hold your uPesy board with the **USB port at the BOTTOM** and the **Wi-Fi antenna / metal shield at the TOP**.
@@ -16,10 +22,10 @@ It follows the embedded safety and architecture guidelines specified in `AGENTS.
                      +----------------+
       (Antenna)      |     [WiFi]     |      (Antenna)
              EN  [ ] | 1            1 | [ ]  23
-             36  [ ] | 2            2 | [ ]  22  <--- LCD SCL (Pin 2)
+             36  [ ] | 2            2 | [ ]  22  <--- Shared I2C SCL (LCD Pin 2 & MPU6050 SCL)
              39  [ ] | 3            3 | [ ]  TX0
              34  [ ] | 4            4 | [ ]  RX0
-             35  [ ] | 5            5 | [ ]  21  <--- LCD SDA (Pin 5)
+             35  [ ] | 5            5 | [ ]  21  <--- Shared I2C SDA (LCD Pin 5 & MPU6050 SDA)
              32  [ ] | 6            6 | [ ]  19
              33  [ ] | 7            7 | [ ]  18
              25  [ ] | 8            8 | [ ]  5
@@ -29,44 +35,68 @@ It follows the embedded safety and architecture guidelines specified in `AGENTS.
              12  [ ] | 12          12 | [ ]  0
              13  [ ] | 13          13 | [ ]  2
 (DO NOT USE) VIN [ ] | 14          14 | [ ]  15
-LCD VCC ---> 5V  [ ] | 15          15 | [ ]  3V3
-LCD GND ---> GND [ ] | 16          16 | [ ]  GND
+VCC ---> 5V      [ ] | 15          15 | [ ]  3V3 <--- MPU6050 VCC (or 5V)
+GND ---> GND     [ ] | 16          16 | [ ]  GND <--- Shared GND
                      +----------------+
                         [USB Port]
 ```
 
-### Exact Wiring Table
+### Complete Wiring Table
 
-| LCD Backpack Pin | uPesy Board Header | Physical Pin Position | Board Silkscreen Label |
-| :--- | :--- | :--- | :--- |
-| **GND** | **Left Header** | **Pin 16** (bottom-most pin near EN button) | **`GND`** |
-| **VCC** | **Left Header** | **Pin 15** (1 pin above GND) | **`5V`** *(Do NOT use `VIN`!)* |
-| **SDA** | **Right Header** | **Pin 5** (5th pin down from antenna) | **`D21`** |
-| **SCL** | **Right Header** | **Pin 2** (2nd pin down from antenna) | **`D22`** |
-
-### Common Pitfalls on the uPesy Board
-1. **`5V` vs `VIN`**: On uPesy boards, `VIN` (Pin 14) is an input for external power supplies. When powered by USB, **`VIN` does NOT supply 5V**. You **must** connect LCD VCC to the pin labeled **`5V`** (Pin 15)!
-2. **SDA & SCL are NOT Adjacent**: On the uPesy board, GPIO 22 (SCL) is **Pin 2**, and GPIO 21 (SDA) is **Pin 5**. Between them are TX0 and RX0!
-3. **Contrast Potentiometer**: Turn the small blue trimmer potentiometer on the back of the LCD backpack with a screwdriver until characters appear.
-4. **Backlight Jumper**: Ensure the black jumper cap is firmly seated on the 2-pin header of the backpack.
-5. **Auto-Detecting I2C Address**: The firmware automatically detects whether your module uses **`0x27` (PCF8574T)** or **`0x3F` (PCF8574AT)**.
+| Device | Device Pin | ESP32 Header | Physical Pin | Silkscreen Label | Notes |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| **LCD Backpack** | **GND** | Left Header | Pin 16 | `GND` | Ground |
+| **LCD Backpack** | **VCC** | Left Header | Pin 15 | `5V` | Must be 5V for readable contrast (do NOT use `VIN`) |
+| **LCD Backpack** | **SDA** | Right Header | Pin 5 | `D21` | Shared I2C SDA bus line |
+| **LCD Backpack** | **SCL** | Right Header | Pin 2 | `D22` | Shared I2C SCL bus line |
+| **GY-521 MPU6050** | **VCC** | Right Header | Pin 15 (or Left Pin 15) | `3V3` or `5V` | Onboard LDO supports both |
+| **GY-521 MPU6050** | **GND** | Left / Right | Pin 16 | `GND` | Common ground |
+| **GY-521 MPU6050** | **SDA** | Right Header | Pin 5 | `D21` | Shared I2C SDA bus line |
+| **GY-521 MPU6050** | **SCL** | Right Header | Pin 2 | `D22` | Shared I2C SCL bus line |
+| **GY-521 MPU6050** | **AD0** | — | — | — | Leave unconnected or to GND (Address = `0x68`) |
 
 ---
 
-## Architecture
+## Architecture & Multi-Task Design
+
+```
+                     ┌──────────────────┐
+                     │     main.cpp     │  (Composition Root)
+                     └────────┬─────────┘
+            ┌─────────────────┴─────────────────┐
+            ▼                                   ▼
+   ┌─────────────────┐                 ┌─────────────────┐
+   │   SensorTask    │                 │   DisplayTask   │
+   │  (Priority 6)   │                 │  (Priority 7)   │
+   │   Period: 1s    │                 │  Period: 500ms  │
+   └────────┬────────┘                 └────────▲────────┘
+            │                                   │
+   1. Polls MPU6050                    3. Reads latest data
+   2. Terminal LOG_INF                          │
+   3. Updates hub                               │
+            │                                   │
+            ▼                                   │
+   ┌────────────────────────────────────────────┴────────┐
+   │            app::sensor::SensorDataHub               │
+   │          (Thread-Safe Mutex Repository)             │
+   └─────────────────────────────────────────────────────┘
+```
 
 - **Devicetree** (`overlay/esp32_devkitc_procpu.overlay`):
-  - Configures `&i2c0` at 100 kHz on GPIO 21 (SDA) and GPIO 22 (SCL).
-- **Common Types** (`src/common/`):
-  - `app_status.hpp`: Standardized `app::Status` enum and `IsOk()` predicate.
+  - Configures `&i2c0` on GPIO 21 (SDA) and GPIO 22 (SCL).
+  - Instantiates `mpu6050@68` node compatible with `invensense,mpu6050`.
+- **Sensor Module** (`src/sensor/`):
+  - `sensor_data.hpp`: `ImuMeasurement` data structure and thread-safe `SensorDataHub` protected by `k_mutex`.
+  - `sensor_service.hpp`: Pure abstract interface `ISensorService`.
+  - `sensor_task.hpp` / `.cpp`: Dedicated RTOS thread running at 1 Hz, sampling MPU6050 and logging readings to console (`LOG_INF`).
 - **Display Module** (`src/display/`):
   - `display_service.hpp`: Pure abstract interface `IDisplayService`.
-  - `display_task.hpp`: Background worker task interface.
-  - `display_task.cpp`: Dedicated Zephyr thread updating the LCD (Row 0: "Hello world", Row 1: "Count: <n>" incrementing every 1 second).
-- **Platform Adapter** (`src/platform/`):
-  - `zephyr_auxdisplay_adapter.hpp` / `.cpp`: Auto-detects I2C addresses `0x27` and `0x3F`, provides I2C bus diagnostic scanning, and controls the HD44780 4-bit protocol.
+  - `display_task.hpp` / `.cpp`: Dedicated RTOS thread reading from `SensorDataHub` and rendering real-time Accel / Gyro / Temp onto LCD.
+- **Platform Adapters** (`src/platform/`):
+  - `zephyr_auxdisplay_adapter.hpp` / `.cpp`: HD44780 LCD backpack driver with auto-probing (0x27/0x3F) and I2C bus scanner.
+  - `zephyr_mpu6050_adapter.hpp` / `.cpp`: Integrates upstream Zephyr `sensor.h` driver for MPU-6050.
 - **Application Startup** (`src/main.cpp`):
-  - Ultra-lean dependency wiring with zero business logic.
+  - Ultra-lean dependency injection wiring.
 
 ---
 
@@ -74,19 +104,20 @@ LCD GND ---> GND [ ] | 16          16 | [ ]  GND
 
 ```powershell
 # Build project with Ninja
+$env:PATH = "C:\Users\amin_\.zinstaller\.venv\Scripts;" + $env:PATH
 ninja -C build/primary
 
-# Or using West
+# Or build with West
 west build -b esp32_devkitc/esp32/procpu -p auto
 
-# Flash to board (specify COM port if needed)
-west flash --esp-baud-rate 921600
+# Flash to board
+west flash --esp-device COM5 --esp-baud-rate 921600
 ```
 
 ---
 
 ## Important changes
 
-- 2026-09-13: Added dedicated uPesy ESP32 Wroom DevKit pinout diagram and wiring instructions. Added automatic I2C address auto-detection (supporting both `0x27` PCF8574T and `0x3F` PCF8574AT) with automatic I2C bus diagnostic scanner on boot.
-- 2026-09-12: Added modular `DisplayTask` background thread incrementing a 1-second counter on line 1 while line 0 displays "Hello world", keeping `main.cpp` lean and modular.
+- 2026-09-13: Integrated **ICQUANZX GY-521 MPU6050** 6-axis IMU sensor. Implemented multi-task architecture with dedicated `SensorTask` (1 Hz polling + terminal logging) and `DisplayTask` (real-time LCD rendering via mutex-protected `SensorDataHub`), completely replacing the previous static welcome text and counter.
+- 2026-09-13: Reorganized folder structure to co-locate `.hpp` and `.cpp` in `src/`, moved board overlay to `overlay/esp32_devkitc_procpu.overlay`, and thoroughly commented the entire codebase.
 - 2026-09-12: Added HD44780 1602 LCD support via PCF8574 I2C backpack. Enabled C++17 support.

@@ -14,16 +14,23 @@ Keep the project simple, safe, testable, and easy to understand.
 
 Every file and function in this project must be thoroughly commented so that anyone reading the code can immediately understand both *what* it does and *why* it was designed that way:
 
-1. **Explain the "Why", Not Just the "What"**:
+1. **NEVER Remove or Shorten Existing Comments**:
+   - When refactoring, modifying, or adding features, preserve all existing docstrings, rationale, and inline comments.
+   - Do not simplify or omit comments to save space. Every change must maintain or increase documentation quality.
+
+2. **Explain the "Why", Not Just the "What"**:
    - Always explain hardware-specific decisions, timing delays, bit-level shifts, and register quirks (citing datasheet requirements where applicable).
    - Document safety and architectural rationales (e.g., why static allocation is preferred over `malloc`, why `noexcept` is applied, or why `enum class Status : int32_t` is used).
 
-2. **Doxygen-Style API Headers**:
-   - Use standard Doxygen blocks (`@brief`, `@param`, `@return`) for all public and private class methods and interface definitions.
+3. **Doxygen-Style API Headers**:
+   - Use standard Doxygen blocks (`@brief`, `@param`, `@return`) for all public and private class methods, struct definitions, and interface methods.
    - Mark function return error contracts clearly.
 
-3. **Inline Hardware Explanations**:
-   - When interacting with buses (I2C, SPI, GPIO) or peripheral expanders (like PCF8574), include diagrams or inline bit-mapping comments explaining how bytes map to physical pins.
+4. **Detailed Parameter Annotations for RTOS / Hardware APIs**:
+   - For multi-parameter RTOS and hardware calls (e.g. `k_thread_create`, `sensor_channel_get`), annotate every single argument with an inline comment explaining its purpose, pointer type, or units.
+
+5. **Inline Hardware Explanations**:
+   - When interacting with buses (I2C, SPI, GPIO) or peripheral expanders (like PCF8574, MPU6050), include diagrams or inline bit-mapping comments explaining how bytes map to physical pins.
 
 ## Project structure
 
