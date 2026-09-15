@@ -18,6 +18,7 @@ enum class Status : int32_t {
     kNotReady,           ///< Hardware or subsystem is not ready (e.g., I2C bus not found/ready).
     kTimeout,            ///< Operation timed out waiting for hardware or resource.
     kBusy,               ///< Subsystem or task is already running / busy.
+    kNotFound,           ///< Requested resource or record was not found.
     kIoError,            ///< Communication error with external hardware (e.g., I2C NACK or bus fault).
     kInternalError,      ///< Unrecoverable internal failure.
 };

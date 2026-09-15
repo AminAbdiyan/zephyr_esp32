@@ -47,6 +47,28 @@ public:
     DisplayTask& operator=(DisplayTask&&) = delete;
 
     /**
+     * @brief Initializes the underlying display hardware and enables the backlight.
+     *
+     * Allows main.cpp to display startup/connection status messages before the periodic
+     * thread is launched.
+     *
+     * @return Status::kOk on successful initialization.
+     * @return Status::kNotReady or Status::kIoError if display hardware fails.
+     */
+    [[nodiscard]] Status InitHardware() noexcept;
+
+    /**
+     * @brief Displays a two-line static message on the LCD.
+     *
+     * Pads each line with spaces to 16 characters so previous text is cleanly overwritten.
+     *
+     * @param[in] line0 Text for Row 0 (truncated to 16 characters).
+     * @param[in] line1 Text for Row 1 (truncated to 16 characters).
+     * @return Status::kOk on success, error status otherwise.
+     */
+    [[nodiscard]] Status ShowMessage(const char* line0, const char* line1) noexcept;
+
+    /**
      * @brief Initializes the display hardware and launches the periodic background thread.
      *
      * Calling `Start()` multiple times safely returns `Status::kBusy`.

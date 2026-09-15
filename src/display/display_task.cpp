@@ -21,12 +21,8 @@ DisplayTask::DisplayTask(IDisplayService& display_service, const sensor::SensorD
 {
 }
 
-Status DisplayTask::Start() noexcept
+Status DisplayTask::InitHardware() noexcept
 {
-    if (is_started_) {
-        return Status::kBusy;
-    }
-
     // 1. Initialize LCD hardware controller
     const Status init_status = display_service_.Initialize();
     if (!IsOk(init_status)) {
@@ -38,6 +34,46 @@ Status DisplayTask::Start() noexcept
     const Status bl_status = display_service_.SetBacklight(true);
     if (!IsOk(bl_status)) {
         LOG_WRN("Failed to enable backlight: %d", static_cast<int>(bl_status));
+    }
+
+    return Status::kOk;
+}
+
+Status DisplayTask::ShowMessage(const char* const line0, const char* const line1) noexcept
+{
+    // Format each line into fixed 16 characters padded with spaces
+    char row0_buf[17] = {};
+    char row1_buf[17] = {};
+
+    (void)snprintf(row0_buf, sizeof(row0_buf), "%-16.16s", (line0 != nullptr) ? line0 : "");
+    (void)snprintf(row1_buf, sizeof(row1_buf), "%-16.16s", (line1 != nullptr) ? line1 : "");
+
+    Status status = display_service_.SetCursor(0U, 0U);
+    if (!IsOk(status)) {
+        return status;
+    }
+    status = display_service_.Print(row0_buf);
+    if (!IsOk(status)) {
+        return status;
+    }
+
+    status = display_service_.SetCursor(0U, 1U);
+    if (!IsOk(status)) {
+        return status;
+    }
+    return display_service_.Print(row1_buf);
+}
+
+Status DisplayTask::Start() noexcept
+{
+    if (is_started_) {
+        return Status::kBusy;
+    }
+
+    // Initialize display hardware if not done yet
+    const Status hw_status = InitHardware();
+    if (!IsOk(hw_status)) {
+        return hw_status;
     }
 
     // 3. Spawn the background display update thread
